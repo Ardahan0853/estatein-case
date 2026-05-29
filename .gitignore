@@ -1,0 +1,11 @@
+# Editor / OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Local dev helpers (not part of the theme deliverable)
+.claude/
+
+# Dependencies (none currently, but for future tooling)
+node_modules/
+vendor/
