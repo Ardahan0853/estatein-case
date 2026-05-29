@@ -9,7 +9,7 @@
             </article>
         <?php endwhile; ?>
     <?php else : ?>
-        <p>İçerik bulunamadı.</p>
+        <p>No content found.</p>
     <?php endif; ?>
 </main>
 

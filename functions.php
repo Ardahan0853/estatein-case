@@ -1,6 +1,6 @@
 <?php
 
-// Tema desteği
+// Theme setup
 function estatein_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -9,28 +9,23 @@ function estatein_setup() {
     add_theme_support('automatic-feed-links');
 
     register_nav_menus(array(
-        'primary' => 'Ana Menü',
+        'primary' => 'Primary Menu',
     ));
 }
 add_action('after_setup_theme', 'estatein_setup');
 
-// CSS ve JS yükle (cache-busting için filemtime ile versiyonlama)
+// Enqueue styles and scripts (filemtime versioning for cache-busting)
 function estatein_scripts() {
     $theme_dir = get_template_directory();
     $theme_uri = get_template_directory_uri();
 
-    // Google Fonts (preconnect header.php'de değil; WP gerekli preconnect'i ekler)
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap', array(), null);
-
-    // Ana CSS
     wp_enqueue_style('estatein-style', get_stylesheet_uri(), array(), filemtime(get_stylesheet_directory() . '/style.css'));
-
-    // Ana JS (footer'da, defer ile)
     wp_enqueue_script('estatein-main', $theme_uri . '/assets/js/main.js', array(), filemtime($theme_dir . '/assets/js/main.js'), true);
 }
 add_action('wp_enqueue_scripts', 'estatein_scripts');
 
-// main.js'i defer ile yükle (performans)
+// Load main.js with defer
 function estatein_defer_scripts($tag, $handle) {
     if ('estatein-main' === $handle) {
         return str_replace(' src', ' defer src', $tag);
@@ -39,20 +34,20 @@ function estatein_defer_scripts($tag, $handle) {
 }
 add_filter('script_loader_tag', 'estatein_defer_scripts', 10, 2);
 
-// Performans: gereksiz emoji script/stillerini kaldır
+// Drop unused emoji scripts and hide the WP version
 function estatein_cleanup() {
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('wp_print_styles', 'print_emoji_styles');
-    remove_action('wp_head', 'wp_generator'); // güvenlik: WP versiyonunu gizle
+    remove_action('wp_head', 'wp_generator');
 }
 add_action('init', 'estatein_cleanup');
 
-// Görsel yardımcı fonksiyonu
+// Helper: build an asset URL
 function estatein_img($file) {
     return get_template_directory_uri() . '/assets/images/' . $file;
 }
 
-// Widget alanları
+// Footer widget area
 function estatein_widgets() {
     register_sidebar(array(
         'name'          => 'Footer Widget',

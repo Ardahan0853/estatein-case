@@ -67,7 +67,7 @@ ul { list-style: none; }
 .container {
     width: 100%;
     margin: 0 auto;
-    /* Figma ile aynı oransal kenar boşluğu (~%8.5); sabit max-width yok ki geniş ekranda dev boşluk kalmasın */
+    /* Proportional side padding (~8.5%) so wide screens don't get oversized gutters */
     padding: 0 clamp(20px, 8.5%, 200px);
 }
 
@@ -275,8 +275,7 @@ section { padding: 80px 0; }
 .hero-image {
     position: relative;
     align-self: stretch;
-    /* Container'ın sağ boşluğunu aşıp görseli viewport kenarına dayar (metin hizasını bozmadan).
-       vw kullanıyoruz: margin yüzdesi grid hücresine göre hesaplanır, container padding ise viewport'a — eşleşmesi için vw. */
+    /* Pull the image out to the viewport edge past the container padding (vw matches the padding's basis) */
     margin-right: calc(-1 * clamp(20px, 8.5vw, 200px));
 }
 .hero-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 0; display: block; }
@@ -590,7 +589,7 @@ section { padding: 80px 0; }
 .footer-social a:hover { background: var(--accent); border-color: var(--accent); }
 
 /* ---------- Responsive ---------- */
-/* Laptop: tüm sayfa bir tık daha küçük ölçek */
+/* Laptop: scale the page down a touch */
 @media (max-width: 1366px) {
     .hero-content h1 { font-size: 48px; }
     .section-head h2 { font-size: 34px; }
@@ -598,28 +597,26 @@ section { padding: 80px 0; }
 }
 
 @media (max-width: 992px) {
-    /* Hero: görsel üstte, metin altta (mobil/tablet) */
+    /* Hero stacks: image on top, text below */
     .hero-grid { grid-template-columns: 1fr; gap: 0; }
     .hero-content { padding: 56px 0 0; }
     .hero-content h1 { font-size: 40px; }
     .hero-image { order: -1; min-height: 340px; margin-right: 0; }
-    /* Rozet görselin sol-altında taşar */
     .hero-badge { top: auto; right: auto; left: 16px; bottom: -38px; width: 120px; height: 120px; }
     .hero-badge-ring { width: 120px; height: 120px; }
     .hero-badge-arrow { width: 74px; height: 74px; }
-    /* Feature kartları: 2 sütun, ayrı çerçeveli kutular */
+    /* Feature cards: 2-col grid of separate boxes, arrow moved top-right */
     .features-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .feature-card { position: relative; border: 1px solid var(--border) !important; border-radius: 12px !important; min-height: 150px; gap: 18px; padding: 16px; }
     .feature-icon { width: 48px; height: 48px; }
     .feature-icon img { width: 22px; height: 22px; }
-    /* Ok sağ-üst köşeye taşınır, başlık tam genişlik alır (dar kartta sıkışmaz) */
     .feature-card-foot { display: block; }
     .feature-card h3 { font-size: 15px; line-height: 1.3; }
     .feature-arrow { position: absolute; top: 16px; right: 16px; width: 22px; height: 22px; }
     .properties-grid,
     .testimonials-grid,
     .faq-grid { grid-template-columns: 1fr 1fr; }
-    /* Footer: marka tam genişlik üstte, link sütunları üstten hizalı */
+    /* Footer: full-width brand, top-aligned link columns */
     .footer-top { grid-template-columns: repeat(3, 1fr); align-items: start; }
     .footer-brand { grid-column: 1 / -1; margin-bottom: 8px; }
     .footer-email { max-width: 360px; }
@@ -635,14 +632,11 @@ section { padding: 80px 0; }
     .section-head { flex-direction: column; align-items: flex-start; gap: 16px; }
     .section-head h2 { font-size: 30px; }
     .hero-content h1 { font-size: 34px; }
-    /* Butonlar full-width, alt alta */
     .hero-actions { flex-direction: column; }
     .hero-actions .btn-primary,
     .hero-actions .btn-outline { width: 100%; }
-    /* Stats: ilk satır 2 kutu, "16+" alt satırda full-width */
     .hero-stats { flex-wrap: wrap; gap: 12px; }
     .hero-stat { flex: 1 1 40%; }
-    /* Feature kartları mobilde de 2 sütun kalır (Figma) */
     .properties-grid,
     .testimonials-grid,
     .faq-grid { grid-template-columns: 1fr; }

@@ -34,12 +34,10 @@
     <div class="container">
         <div class="header-inner">
 
-            <!-- LOGO -->
             <a href="#" class="logo">
                 <img src="<?php echo estatein_img('logo.webp'); ?>" alt="Estatein">
             </a>
 
-            <!-- NAV -->
             <nav class="main-nav">
                 <ul>
                     <li><a class="active" href="#">Home</a></li>
@@ -49,10 +47,8 @@
                 </ul>
             </nav>
 
-            <!-- CTA -->
             <a href="#" class="btn-outline">Contact Us</a>
 
-            <!-- MOBILE HAMBURGER -->
             <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
