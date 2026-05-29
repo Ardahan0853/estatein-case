@@ -33,9 +33,7 @@
                             <path id="heroCirclePath" d="M 100,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0" />
                         </defs>
                         <text>
-                            <textPath href="#heroCirclePath" startOffset="0">
-                                ✦ Discover Your Dream Property &nbsp; ✦ Discover Your Dream Property &nbsp;
-                            </textPath>
+                            <textPath href="#heroCirclePath" startOffset="0"><tspan fill="#FFD27D">✦</tspan> Discover Your Dream Property &nbsp;&nbsp;<tspan fill="#FFD27D">✦</tspan> Discover Your Dream Property &nbsp;&nbsp;</textPath>
                         </text>
                     </svg>
                     <span class="hero-badge-arrow">
