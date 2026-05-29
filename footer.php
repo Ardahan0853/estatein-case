@@ -42,10 +42,10 @@
                 @<?php echo date('Y'); ?> Estatein. All Rights Reserved. &nbsp; <a href="#">Terms &amp; Conditions</a>
             </div>
             <div class="footer-social">
-                <a href="#" aria-label="Facebook">f</a>
-                <a href="#" aria-label="LinkedIn">in</a>
-                <a href="#" aria-label="Twitter">&#120143;</a>
-                <a href="#" aria-label="YouTube">&#9658;</a>
+                <a href="https://www.facebook.com/growmodo/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+                <a href="https://www.linkedin.com/company/growmodo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                <a href="https://x.com/growmodo/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">&#120143;</a>
+                <a href="https://www.instagram.com/growmodo/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">&#9658;</a>
             </div>
         </div>
     </div>
